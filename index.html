@@ -1,0 +1,85 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-br"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-br"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
+<head>
+
+	<!-- CONFIGS -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Jquery fullContent.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	
+	<style type="text/css">
+		
+		body { overflow-x: hidden; overflow-y: hidden; }
+		.stage { }
+		
+		.scrollv { overflow-y: auto; }
+		p { width: 500px; }
+		
+	</style>
+	
+</head>
+
+<body>
+	
+	<div id="teste">
+	
+		<div id="stage" class="stage">
+			<h1>Stage1</h1>
+			<a href="#stage2">Go to stage2</a>
+		</div>
+		
+		<div id="stage2" class="stage scrollv">
+			<h1>Stage2</h1>
+			<h2>Try resize to see vertical scroll</h2>
+			
+			<a href="#stage3">Go to stage3</a>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut mi risus. Integer hendrerit mauris sit amet augue posuere in porttitor tortor viverra. Nam facilisis dolor ut massa varius hendrerit. Phasellus nec elementum odio. Sed neque nisl, adipiscing ut fringilla vel, tempus vitae urna. Sed facilisis erat quis justo tincidunt aliquam fermentum purus aliquam. Nullam leo lacus, pretium eu elementum in, laoreet sit amet leo. Duis molestie consequat massa, nec tincidunt orci pulvinar quis.</p>
+
+<p>Sed eu erat blandit libero placerat varius a at elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu felis lacus, porta rhoncus lacus. Donec nec magna libero. Pellentesque eget nunc at metus hendrerit accumsan. Donec quis enim et nibh posuere tempor cursus eu elit. Integer ut enim nisi. Nulla condimentum felis ac tortor tempus eleifend. Quisque aliquam augue nunc, ut hendrerit dolor.</p>
+
+<p>Morbi vel massa eget neque commodo semper sed ac enim. Curabitur nisi nisi, mattis eget pulvinar ut, mattis nec lacus. Maecenas dapibus tempus molestie. Sed volutpat ipsum ut arcu eleifend lacinia. Vivamus gravida, elit vitae consequat rutrum, tortor purus rutrum ligula, eu ultrices quam ante pretium erat. Morbi aliquam nunc id metus scelerisque consequat. Morbi id diam nec nunc lobortis lacinia et ac ante. Sed placerat orci at lectus vestibulum eleifend. Donec sit amet dui ut lorem rutrum sollicitudin eget at risus. Etiam tincidunt nulla sit amet sapien auctor porttitor. Aenean eget purus id nisi consectetur sollicitudin in et mauris. Aenean facilisis pretium mi at lacinia. Quisque egestas egestas adipiscing. Nunc nec faucibus arcu. Donec est augue, ultricies sit amet dignissim ac, tempor vel tellus.</p>
+
+<p>Quisque elit nunc, accumsan in aliquet sed, pharetra et nulla. Ut elementum, leo id volutpat dapibus, lorem felis imperdiet tortor, a placerat felis urna vel sapien. Cras mauris nisl, porttitor ut rhoncus sed, varius eu ipsum. Vivamus ut odio ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur pretium, arcu non tempor laoreet, odio felis facilisis arcu, vel euismod lacus erat vitae lacus. Mauris egestas luctus sollicitudin. Suspendisse volutpat interdum mauris nec laoreet. Nunc nibh lectus, dictum a eleifend at, auctor sit amet magna. Fusce at justo sapien, a molestie lacus. Donec sagittis euismod felis eget sagittis. Maecenas ut ipsum nisl, a malesuada tellus. Ut malesuada sagittis volutpat. Donec felis risus, tristique eu pulvinar vel, laoreet non massa. Integer et sapien lacus.</p>
+
+<p>Sed a enim in metus scelerisque placerat ut elementum tortor. Suspendisse potenti. Vivamus ut purus risus. Nulla ipsum quam, facilisis eget placerat ut, lacinia vitae elit. Morbi viverra lacinia quam, ultrices semper risus consequat nec. Fusce aliquam leo et sem sollicitudin ac sollicitudin felis porttitor. Donec bibendum elit vitae odio ultrices dapibus. Quisque et lectus sit amet turpis semper rhoncus a sit amet odio. Etiam ac augue enim, eget interdum risus. Praesent sed tortor elit, quis vestibulum urna. Sed urna justo, malesuada et feugiat non, eleifend ut magna. Nulla vel nibh quis dui sodales tristique at at diam.</p>
+
+		</div>
+		
+		<div id="stage3" class="stage">
+			<h1>Stage3</h1>
+			<a href="#stage4">Go to stage4</a>
+		</div>
+		
+		<div id="stage4" class="stage">
+			<h1>Stage4</h1>
+			<a href="#stage">Go to stage1</a>
+		</div>
+	
+	</div>
+	
+
+	<!-- jQuery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+	<script src="js/scrollTo.min.js"></script>
+	<script src="js/jquery.fullContent.min.js"></script>
+	<script type="text/javascript">
+		
+		$('#teste').fullContent({
+			children: 'div',
+			mapPosition: [{v: 1, h: 1}, {v: 1, h: 2}, {v: 2, h: 1}, {v: 2, h: 2}],
+			stageStart: 1,
+			idComplement: 'page_'
+		});
+
+	
+	</script>
+	</body>
+</html>
