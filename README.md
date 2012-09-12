@@ -47,7 +47,7 @@ Put Jquery, ScrollTo Plugin and Jquery.fullContent
 
 And you can configure this parameters:
 ```javascript
-$('#container').fullContentNavigation({
+$('#container').fullContent({
 	stages: 'div',
 	mapPosition: [{v: 1, h: 1}, {v: 1, h: 2}, {v: 2, h: 1}, {v: 2, h: 2}],
 	stageStart: 1,
@@ -57,7 +57,7 @@ $('#container').fullContentNavigation({
 
 ## The Map Positon
 
-This parameter you can config the position which want your stage. 
+This parameter you can configuring the position which want your stage.
 V - vertical position
 H - horizontal position
 
