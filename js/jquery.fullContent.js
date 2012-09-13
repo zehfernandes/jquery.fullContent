@@ -72,42 +72,38 @@
 
   Plugin.prototype.init = function () {
 
-    var self = this;
-    var stages = this.options.stages;
-    var idComplement = this.options.idComplement;
+    var self = this,
+        stages = this.options.stages,
+        idComplement = this.options.idComplement;
 
     $(this.element).children(stages).each(function(index) {
 
-	 	//Change the ID, added complement to allows scroll animation
-	 	var stageID = $(this).attr('id');
-   	$(this).attr('id', idComplement+stageID);
+  	 	//Change the ID, added complement to allows scroll animation
+  	 	var stageID = $(this).attr('id');
+     	$(this).attr('id', idComplement+stageID);
 
-    //Scroll To startStage
-   	if((!window.location.hash) && (self.options.stageStart == index+1)) {
-	   	$.scrollTo($(this), 0 );
-	   	window.location.hash = 	$(this).attr('id').replace(idComplement, '');
-   	}
+      //Scroll To startStage
+     	if((!window.location.hash) && (self.options.stageStart == index+1)) {
+  	   	$.scrollTo($(this), 0 );
+  	   	window.location.hash = 	$(this).attr('id').replace(idComplement, '');
+     	}
 
-  });
+    });
 
+  };
 
-  	 /*
-  	 	Events
-  	 */
-	 $window.resize(function() {
+  Plugin.prototype.bind = function () {
 
-	 	self.configStage();
+    var self = this;
 
-	 });
+    this.$window.resize(function() {
+      self.configStage();
+    });
 
-
-	 $window.bind( 'hashchange', function( event ){
-
-	 	var hash = window.location.hash.replace(/^#\/?/,'');
-	 	$.scrollTo('#'+idComplement+hash, 800 );
-
-	 });
-
+    this.$window.bind( 'hashchange', function( event ){
+      var hash = window.location.hash.replace(/^#\/?/,'');
+      $.scrollTo('#'+idComplement+hash, 800 );
+    });
 
   };
 
