@@ -21,6 +21,7 @@
   // The actual plugin constructor
   function Plugin( element, options ) {
     this.element = element;
+    this.$window = $(window);
 
     this.options = $.extend( {}, defaults, options) ;
 
@@ -34,13 +35,13 @@
 
   Plugin.prototype.configStage = function () {
 
-  	var winwidth = $(window).width();
-	var winheight = $(window).height();
-	var stages = this.options.stages;
-	var childrenPosition = this.options.mapPosition;
-	var count = 0;
+  	var winwidth = $window.width(),
+        winheight = $window.height(),
+        stages = this.options.stages,
+        childrenPosition = this.options.mapPosition,
+        count = 0;
 
-	$(this.element).children(stages).each(function(index) {
+  	$(this.element).children(stages).each(function(index) {
 
 	   	$(this).css({'position' : 'absolute',
 	   				 'width'	: winwidth,
@@ -59,49 +60,48 @@
 
 	   	count++;
 
-	});
+  	});
 
-	//Ajust the browser viewport to actual stage
-	if (window.location.hash) {
-		var hash = window.location.hash.replace(/^#\/?/,'');
-		$.scrollTo('#'+this.options.idComplement+hash , 0 );
-	}
+  	//Ajust the browser viewport to actual stage
+  	if (window.location.hash) {
+  		var hash = window.location.hash.replace(/^#\/?/,'');
+  		$.scrollTo('#'+this.options.idComplement+hash , 0 );
+  	}
 
   };
 
   Plugin.prototype.init = function () {
 
-  	 var self = this;
-  	 var stages = this.options.stages;
-  	 var idComplement = this.options.idComplement;
+    var self = this;
+    var stages = this.options.stages;
+    var idComplement = this.options.idComplement;
 
-  	 $(this.element).children(stages).each(function(index) {
+    $(this.element).children(stages).each(function(index) {
 
-  	 	//Change the ID, added complement to allows scroll animation
-  	 	var stageID = $(this).attr('id');
-	   	$(this).attr('id', idComplement+stageID);
+	 	//Change the ID, added complement to allows scroll animation
+	 	var stageID = $(this).attr('id');
+   	$(this).attr('id', idComplement+stageID);
 
-	    //Scroll To startStage
-	   	if((!window.location.hash) && (self.options.stageStart == index+1)) {
-		   	$.scrollTo($(this), 0 );
-		   	window.location.hash = 	$(this).attr('id').replace(idComplement, '');
-	   	}
+    //Scroll To startStage
+   	if((!window.location.hash) && (self.options.stageStart == index+1)) {
+	   	$.scrollTo($(this), 0 );
+	   	window.location.hash = 	$(this).attr('id').replace(idComplement, '');
+   	}
 
-
-  	 });
+  });
 
 
   	 /*
   	 	Events
   	 */
-	 $(window).resize(function() {
+	 $window.resize(function() {
 
 	 	self.configStage();
 
 	 });
 
 
-	 $(window).bind( 'hashchange', function( event ){
+	 $window.bind( 'hashchange', function( event ){
 
 	 	var hash = window.location.hash.replace(/^#\/?/,'');
 	 	$.scrollTo('#'+idComplement+hash, 800 );
