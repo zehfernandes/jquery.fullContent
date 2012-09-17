@@ -8,38 +8,38 @@
 	<!-- CONFIGS -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
+
 	<title>Jquery fullContent.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
-	
+
 	<style type="text/css">
-		
+
 		body { overflow-x: hidden; overflow-y: hidden; }
 		.stage { }
-		
+
 		.scrollv { overflow-y: auto; }
 		p { width: 500px; }
-		
+
 	</style>
-	
+
 </head>
 
 <body>
-	
+
 	<div id="teste">
-	
+
 		<div id="stage" class="stage">
 			<h1>Stage1</h1>
 			<a href="#stage2">Go to stage2</a>
 		</div>
-		
+
 		<div id="stage2" class="stage scrollv">
 			<h1>Stage2</h1>
 			<h2>Try resize to see vertical scroll</h2>
-			
+
 			<a href="#stage3">Go to stage3</a>
-			
+
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut mi risus. Integer hendrerit mauris sit amet augue posuere in porttitor tortor viverra. Nam facilisis dolor ut massa varius hendrerit. Phasellus nec elementum odio. Sed neque nisl, adipiscing ut fringilla vel, tempus vitae urna. Sed facilisis erat quis justo tincidunt aliquam fermentum purus aliquam. Nullam leo lacus, pretium eu elementum in, laoreet sit amet leo. Duis molestie consequat massa, nec tincidunt orci pulvinar quis.</p>
 
 <p>Sed eu erat blandit libero placerat varius a at elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eu felis lacus, porta rhoncus lacus. Donec nec magna libero. Pellentesque eget nunc at metus hendrerit accumsan. Donec quis enim et nibh posuere tempor cursus eu elit. Integer ut enim nisi. Nulla condimentum felis ac tortor tempus eleifend. Quisque aliquam augue nunc, ut hendrerit dolor.</p>
@@ -51,19 +51,19 @@
 <p>Sed a enim in metus scelerisque placerat ut elementum tortor. Suspendisse potenti. Vivamus ut purus risus. Nulla ipsum quam, facilisis eget placerat ut, lacinia vitae elit. Morbi viverra lacinia quam, ultrices semper risus consequat nec. Fusce aliquam leo et sem sollicitudin ac sollicitudin felis porttitor. Donec bibendum elit vitae odio ultrices dapibus. Quisque et lectus sit amet turpis semper rhoncus a sit amet odio. Etiam ac augue enim, eget interdum risus. Praesent sed tortor elit, quis vestibulum urna. Sed urna justo, malesuada et feugiat non, eleifend ut magna. Nulla vel nibh quis dui sodales tristique at at diam.</p>
 
 		</div>
-		
+
 		<div id="stage3" class="stage">
 			<h1>Stage3</h1>
 			<a href="#stage4">Go to stage4</a>
 		</div>
-		
+
 		<div id="stage4" class="stage">
 			<h1>Stage4</h1>
 			<a href="#stage">Go to stage1</a>
 		</div>
-	
+
 	</div>
-	
+
 
 	<!-- jQuery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
@@ -71,7 +71,7 @@
 	<script src="js/scrollTo.min.js"></script>
 	<script src="js/jquery.fullContent.min.js"></script>
 	<script type="text/javascript">
-		
+
 		$('#teste').fullContent({
 			children: 'div',
 			mapPosition: [{v: 1, h: 1}, {v: 1, h: 2}, {v: 2, h: 1}, {v: 2, h: 2}],
@@ -79,7 +79,7 @@
 			idComplement: 'page_'
 		});
 
-	
+
 	</script>
 	</body>
 </html>
