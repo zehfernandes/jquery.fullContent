@@ -31,13 +31,12 @@
 
     this.init();
     this.configStage();
-
   }
 
   Plugin.prototype.configStage = function () {
 
-  	var winwidth = $window.width(),
-        winheight = $window.height(),
+  	var winwidth = this.$window.width(),
+        winheight = this.$window.height(),
         stages = this.options.stages,
         childrenPosition = this.options.mapPosition,
         count = 0;
@@ -75,7 +74,6 @@
 
     var self = this,
         stages = this.options.stages,
-        speed = this.options.speedTransition,
         idComplement = this.options.idComplement;
 
     $(this.element).children(stages).each(function(index) {
@@ -92,11 +90,15 @@
 
     });
 
+    this.bind();
+
   };
 
   Plugin.prototype.bind = function () {
 
-    var self = this;
+    var self = this,
+    	speed = this.options.speedTransition,
+        idComplement = this.options.idComplement;
 
     this.$window.resize(function() {
       self.configStage();
@@ -104,7 +106,7 @@
 
     this.$window.bind( 'hashchange', function( event ){
       var hash = window.location.hash.replace(/^#\/?/,'');
-      $.scrollTo('#'+idComplement+hash, speed );
+      $.scrollTo('#'+self.options.idComplement+hash, speed );
     });
 
   };
