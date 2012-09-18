@@ -1,6 +1,6 @@
 # Jquery.fullContent
 
-## WHAT THE PLUGIN DOES
+### What the plugin does
 
 * Create fully containers with width and height of window
 * Dynamic position: Each container could have vertical and horizontal position set
@@ -8,7 +8,7 @@
 * Scroll animation between containers
 * Simple configuration and easy use
 
-## Demo and Documentation
+### Demo and Documentation
 
 
 [Check out the Demo](http://www.zehfernandes.com/jquery.fullContent/).
