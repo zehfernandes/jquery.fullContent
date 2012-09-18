@@ -15,6 +15,7 @@
         stages: "div",
         idComplement: 'page_',
         stageStart: 1,
+        speedTransition: 800,
         mapPosition: ''
       };
 
@@ -74,6 +75,7 @@
 
     var self = this,
         stages = this.options.stages,
+        speed = this.options.speedTransition,
         idComplement = this.options.idComplement;
 
     $(this.element).children(stages).each(function(index) {
@@ -102,7 +104,7 @@
 
     this.$window.bind( 'hashchange', function( event ){
       var hash = window.location.hash.replace(/^#\/?/,'');
-      $.scrollTo('#'+idComplement+hash, 800 );
+      $.scrollTo('#'+idComplement+hash, speed );
     });
 
   };
