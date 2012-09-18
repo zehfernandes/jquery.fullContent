@@ -6,7 +6,6 @@
  *  This plugin needs jquery.ScrollTo http://demos.flesler.com/jquery/scrollTo/ to work.
  */
 
-
 ;(function ( $, window, undefined ) {
 
   var pluginName = 'fullContent',
@@ -43,19 +42,23 @@
 
   	$(this.element).children(stages).each(function(index) {
 
-	   	$(this).css({'position' : 'absolute',
-	   				 'width'	: winwidth,
-	   				 'height' 	: winheight
+	   	$(this).css({
+        'position' : 'absolute',
+        'width'	: winwidth,
+        'height' : winheight
 	   	});
 
 	   	if(childrenPosition[index]) {
-	   		var position = childrenPosition[index];
-	   		$(this).css({
-	   			'top'  : winheight*(position['v']-1),
-	   			'left' : winwidth*(position['h']-1)
+
+        var position = childrenPosition[index];
+
+        $(this).css({
+	   			'top' : winheight * (position['v'] - 1),
+	   			'left' : winwidth * (position['h'] - 1)
 	   		});
+
 	   	} else {
-		   	$(this).css({ 'top'  : winheight*count   });
+		   	$(this).css({ 'top' : winheight * count });
 	   	}
 
 	   	count++;
@@ -65,7 +68,7 @@
   	//Ajust the browser viewport to actual stage
   	if (window.location.hash) {
   		var hash = window.location.hash.replace(/^#\/?/,'');
-  		$.scrollTo('#'+this.options.idComplement+hash , 0 );
+  		$.scrollTo('#' + this.options.idComplement + hash , 0 );
   	}
 
   };
@@ -97,7 +100,7 @@
   Plugin.prototype.bind = function () {
 
     var self = this,
-    	speed = this.options.speedTransition,
+        speed = this.options.speedTransition,
         idComplement = this.options.idComplement;
 
     this.$window.resize(function() {
