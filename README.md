@@ -12,3 +12,7 @@
 
 
 [Check out the Demo](http://www.zehfernandes.com/jquery.fullContent/).
+
+### License
+
+Free to use and modify on both personal and commercial environment
