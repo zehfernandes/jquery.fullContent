@@ -18,7 +18,7 @@
 		p { width: 500px; }
 		.scrollv { overflow-y: auto; }
 	</style>
-	
+
 	<noscript>
 		<style>
 			body { overflow-x: auto; overflow-y: auto; }
@@ -70,14 +70,16 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.1.min.js"><\/script>')</script>
 	<script src="js/scrollTo.min.js"></script>
-	<script src="js/jquery.fullContent.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/jquery.fullContent.js"></script>
 	<script>
 
 		$('#teste').fullContent({
 			children: 'div',
 			mapPosition: [{v: 1, h: 1}, {v: 1, h: 2}, {v: 2, h: 1}, {v: 2, h: 2}],
 			stageStart: 1,
-			idComplement: 'page_'
+			idComplement: 'page_',
+			ease: 'easeOutQuad'
 		});
 
 	</script>

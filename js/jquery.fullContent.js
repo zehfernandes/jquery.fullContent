@@ -15,7 +15,8 @@
         idComplement: 'page_',
         stageStart: 1,
         speedTransition: 800,
-        mapPosition: ''
+        mapPosition: '',
+        ease: ''
       };
 
   // The actual plugin constructor
@@ -101,7 +102,8 @@
 
     var self = this,
         speed = this.options.speedTransition,
-        idComplement = this.options.idComplement;
+        idComplement = this.options.idComplement,
+        ease = this.options.ease;
 
     this.$window.resize(function() {
       self.configStage();
@@ -109,7 +111,11 @@
 
     this.$window.bind( 'hashchange', function( event ){
       var hash = window.location.hash.replace(/^#\/?/,'');
-      $.scrollTo('#'+self.options.idComplement+hash, speed );
+      if (ease) {
+        $.scrollTo('#'+self.options.idComplement+hash, speed, {easing: ease});
+      } else {
+        $.scrollTo('#'+self.options.idComplement+hash, speed);
+      }
     });
 
   };
